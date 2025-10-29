@@ -1,0 +1,79 @@
+/* Tailwind base */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------- Utilities ---------- */
+@layer utilities {
+  .container-7xl { @apply mx-auto max-w-7xl px-4; }
+}
+
+/* ---------- Theme Variables (gradients) ---------- */
+:root {
+  --grad-start: #6366f1; /* indigo-500 */
+  --grad-mid:   #a855f7; /* fuchsia-500 */
+  --grad-end:   #f59e0b; /* amber-500  */
+}
+
+/* ---------- Global UX helpers ---------- */
+html { scroll-behavior: smooth; }
+.section-anchor { scroll-margin-top: 90px; }
+
+/* Display font for big headings (Space Grotesk) */
+.font-display { font-family: "Space Grotesk", ui-sans-serif, system-ui, -apple-system; }
+
+/* ---------- Hero Animated Gradient ---------- */
+.animated-gradient {
+  background:
+    radial-gradient(1200px 600px at 10% -10%, rgba(255,255,255,0.9), transparent 60%),
+    radial-gradient(800px 500px at 110% 10%, rgba(255,255,255,0.7), transparent 55%),
+    linear-gradient(135deg, var(--grad-start) 0%, var(--grad-mid) 40%, var(--grad-end) 100%);
+  background-size: 200% 200%;
+  animation: gradMove 18s ease infinite;
+}
+@keyframes gradMove {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Subtle glass effect (optional) */
+.glass { background: rgba(255,255,255,0.6); backdrop-filter: blur(10px); }
+
+/* ---------- Buttons ---------- */
+.btn-gradient {
+  background: linear-gradient(to right, var(--grad-start), var(--grad-mid), var(--grad-end));
+  color: #fff;
+  font-weight: 600;
+  transition: all 0.25s ease;
+}
+.btn-gradient:hover { filter: brightness(0.95); }
+
+.btn-dark {
+  background-color: #0b1220;        /* deep navy */
+  color: #fff;
+  border: 1px solid #ffffff30;
+  font-weight: 500;
+  transition: all 0.25s ease;
+}
+.btn-dark:hover { background-color: #1a2235; }
+
+/* ---------- Cards / Chips ---------- */
+.card-gradient {
+  background: linear-gradient(
+    145deg,
+    rgba(99,102,241,0.12),
+    rgba(168,85,247,0.12),
+    rgba(245,158,11,0.15)
+  );
+  border: 1px solid rgba(255,255,255,0.10);
+}
+.glow { box-shadow: 0 0 25px rgba(168,85,247,0.35); }
+
+.chip {
+  background:
+    linear-gradient(#fff, #fff) padding-box,
+    linear-gradient(135deg, #7c3aed, #f43f5e, #f59e0b) border-box;
+  border: 1px solid transparent;
+  border-radius: 12px;
+}
